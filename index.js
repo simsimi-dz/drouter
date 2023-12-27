@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const axios = require("axios");
 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use((err, req, res, next) => {
@@ -51,7 +52,7 @@ app.get('/2g', async (req, res) => {
         const response = await axios({
             method: "post",
             url: `https://apim.djezzy.dz/djezzy-api/api/v1/subscribers/213${num}/subscription-product?include=`,
-            data: twoGb,
+            data: {"data":{"id":"GIFTWALKWIN","type":"products","meta":{"services":{"steps":10000,"code":"GIFTWALKWIN2GO","id":"WALKWIN"}}}},
             headers: { 'Authorization': `Bearer ${token}` },
           });
 
